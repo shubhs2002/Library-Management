@@ -1,30 +1,48 @@
-Library Management System
-Brief:
-You have to build a library management system using Django where an admin can
-perform CRUD ( create, read, update and delete) operations like
-● Add a Book
-● Update an entry of a book
-● Delete a book
-● Get all books
-Develop web services using Python (Django Framework)
-and front end technologies which can be used for the front end.
-1. Admin Signup:
-a) Insert admin details in tables.
-b) An admin records should be unique based on email, which means
-duplicates records should not be able to enter in DB.
-2. Admin Login:
-a) The Admin can log in based on email and password.
-3. Create an entry for Books.
-a) The admin can create a new entry of a book.
-4. Retrieve all the books.
-a) Retrieve all the books.
-5. Update a book.
-a) The book records should be able to update.
-6. Delete a book.
-a) The book record should be deleted
-Student View:
-1. View all the records of book
-Conditions:
-1. For Front end, you can use any library / framework to build the UI.
-2. Write the documentation for backend code.
-3. Use MySQL database to store the data
+
+## Setup Instructions for the Library Management System
+
+1. **Clone the Repository**:
+   Clone the repository to your local machine using the following command:
+   ```bash
+   git clone <repository-url>
+   cd library_management_system
+Create a Virtual Environment:
+It is recommended to create a virtual environment to manage dependencies. You can create one using:
+
+python -m venv venv
+Activate the Virtual Environment:
+Activate the virtual environment with the following command:
+
+venv\Scripts\activate
+
+Install Dependencies:
+pip install django mysqlclient
+
+Configure Database:
+Update the database settings in library_management_system/settings.py:
+
+Ensure the DATABASES section is configured correctly with your MySQL credentials:
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'library_db',  # Change this to your database name
+        'USER': 'root',        # Change this to your MySQL username
+        'PASSWORD': '12345',   # Change this to your MySQL password
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
+Run Migrations:
+Apply the database migrations to set up the initial database structure:
+
+python manage.py migrate
+Create a Superuser (Optional):
+If you want to access the Django admin panel, create a superuser:
+
+python manage.py createsuperuser
+Run the Development Server:
+Start the Django development server with the following command:
+
+python manage.py runserver
+Access the Application:
+Open your web browser and go to http://127.0.0.1:8000/ to access the application. If you created a superuser, you can access the admin panel at http://127.0.0.1:8000/admin/.
